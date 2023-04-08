@@ -1,0 +1,10 @@
+# Logs
+logs
+*.log
+
+# Caches
+.parcel-cache
+dist
+
+# Dependency directories
+node_modules
