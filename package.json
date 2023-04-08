@@ -5,7 +5,8 @@
     "parcel": "^2.8.3"
   },
   "scripts": {
-    "build": "rm -rf dist && parcel build index.html",
+    "clean": "rm -rf dist",
+    "build": "parcel build index.html",
     "dev": "yarn parcel index.html"
   }
 }

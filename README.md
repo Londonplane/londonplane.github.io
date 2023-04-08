@@ -3,11 +3,11 @@
 ## Run local server
 
 ``` shell
-yarn run dev
+yarn dev
 ```
 
 ## Build
 
 ``` shell
-yarn run build
+yarn clean && yarn build
 ```
