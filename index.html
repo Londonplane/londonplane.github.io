@@ -1,6 +1,9 @@
 <head>
   <link rel="manifest" href="manifest.json" />
-  <script type="module" src="/main.js" defer></script>
+  <script defer type="module" src="/main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
 </head>
 
-<h1>Hello World!</h1>
+<div x-data="{ userInput: $store.shared }">
+  <h1 x-text="userInput"></h1>
+</div>

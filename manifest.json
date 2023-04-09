@@ -14,8 +14,8 @@
     }
   ],
   "share_target": {
-    "action": "/action",
-    "method": "POST",
+    "action": "/#/action",
+    "method": "GET",
     "params": {
       "text": "text"
     }
