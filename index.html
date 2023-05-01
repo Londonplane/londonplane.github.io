@@ -4,6 +4,24 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
 </head>
 
-<div x-data="{ userInput: $store.shared }">
-  <h1 x-text="userInput"></h1>
+<div id="main" x-data="{ userInput: $store.shared, showMain: true }">
+  <template x-if="showMain">
+    <div>
+      <h1 x-text="userInput"></h1>
+      TODO: markdown viewer
+    </div>
+  </template>
+</div>
+
+<div id="settings" x-data="settings" >
+  <button x-on:click="toggle()">Toggle Settings</button>
+  <template x-if="showSettings">
+    <div>
+      <input type="text" x-model="key">
+      <button x-on:click="setAPIKey(key)">Save API Key</button>
+      <div x-show="saved" x-transition>
+        Saved!
+      </div>
+    </div>
+  </template>
 </div>
