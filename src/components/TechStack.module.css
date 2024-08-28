@@ -1,0 +1,54 @@
+.techStack {
+    width: 100%;
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 固定为3列 */
+    gap: 1rem; /* 减少间隙以适应更多卡片 */
+  }
+  
+  .card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem; /* 稍微减少内边距 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .categoryTitle {
+    color: #17a2b8;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem; /* 稍微减小字体大小 */
+  }
+  
+  .techList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tech {
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem; /* 稍微减小字体大小 */
+    color: #555;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 1024px) {
+    .cardContainer {
+      grid-template-columns: repeat(2, 1fr); /* 中等屏幕显示2列 */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cardContainer {
+      grid-template-columns: 1fr; /* 小屏幕显示1列 */
+    }
+  }

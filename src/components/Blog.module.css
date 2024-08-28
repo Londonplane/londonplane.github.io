@@ -1,0 +1,32 @@
+.blog {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 0.5rem;
+    background-color: #ffffff;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -0.25rem;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #2c3e50;
+  }
+  
+  @media (max-width: 768px) {
+    .blog {
+      padding: 3rem 0.25rem;
+    }
+  }

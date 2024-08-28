@@ -1,0 +1,58 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1b242f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navigation.hidden {
+  transform: translateY(-100%);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  padding: 1px 20px;  /* Increased horizontal padding */
+  margin: 3 5px;  /* Added horizontal margin */
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation li.active a {
+  color: #e31b6d;
+}
+
+/* 平滑滚动效果 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation li {
+    padding: 8px 0;
+    margin: 5px 0;  /* Vertical margin for mobile view */
+  }
+}
