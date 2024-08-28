@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import styles from './Blog.module.css';
 
-const UNSPLASH_ACCESS_KEY = 'blr8ufIe5CWNcAMFxuKxcQJ0dgIOGmhq9mxuLVC1RPA';
+const UNSPLASH_ACCESS_KEY = 'Blr8ufIe5CWNcAMFxuKxcQJ0dgIOGmhq9mxuLVC1RPA';
 
 // Simulated blog post data
 const blogPosts = [
@@ -97,7 +97,35 @@ const Blog = () => {
     const [postsWithImages, setPostsWithImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
-    const postsPerPage = 6; // 每页显示6个文章
+    const postsPerPage = 6;
+
+    const controls = useAnimation();
+    const titleRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    controls.start("visible");
+                } else {
+                    controls.start("hidden");
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        const currentRef = titleRef.current;
+
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, [controls]);
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -117,7 +145,7 @@ const Blog = () => {
                 setPostsWithImages(resolvedPosts);
             } catch (error) {
                 console.error('Error fetching images:', error);
-                setPostsWithImages(blogPosts);
+                setPostsWithImages(blogPosts.map(post => ({ ...post, imageUrl: 'https://via.placeholder.com/400x300' })));
             } finally {
                 setIsLoading(false);
             }
@@ -133,32 +161,67 @@ const Blog = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+    const titleVariants = {
+        hidden: { opacity: 0, y: -50 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.5 }
+        }
+    };
+
+    const underlineVariants = {
+        hidden: { width: 0 },
+        visible: { 
+            width: '60px',
+            transition: { duration: 0.5, delay: 0.2 }
+        }
+    };
+
     return (
         <section id="blog" className={styles.blog}>
-            <h1 className={styles.title}>BLOG</h1>
-
-            <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+            <motion.h1
+                ref={titleRef}
+                initial="hidden"
+                animate={controls}
+                variants={titleVariants}
+                className={styles.title}
             >
-                {currentPosts.map((post) => (
-                    <BlogCard key={post.id} {...post} />
-                ))}
-            </motion.div>
-            <div className="flex justify-center mt-8">
-                {Array.from({ length: Math.ceil(postsWithImages.length / postsPerPage) }).map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => paginate(index + 1)}
-                        className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1 ? 'bg-pink-500 text-white' : 'bg-gray-200'
-                            }`}
+                BLOG
+                <motion.span
+                    variants={underlineVariants}
+                    className={`${styles.underline}`}
+                ></motion.span>
+            </motion.h1>
+
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        {index + 1}
-                    </button>
-                ))}
-            </div>
+                        {currentPosts.map((post) => (
+                            <BlogCard key={post.id} {...post} />
+                        ))}
+                    </motion.div>
+                    
+                    <div className="flex justify-center mt-8">
+                        {Array.from({ length: Math.ceil(postsWithImages.length / postsPerPage) }).map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => paginate(index + 1)}
+                                className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1 ? 'bg-pink-500 text-white' : 'bg-gray-200'}`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
+                </>
+            )}
         </section>
     );
 };

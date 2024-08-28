@@ -1,54 +1,104 @@
+:root {
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --color-text-primary: #333;
+  --color-text-secondary: #555;
+  --color-accent: #17a2b8;
+  --color-background: #f8f9fa;
+  --color-background-hover: #e9ecef;
+}
+
 .techStack {
-    width: 100%;
+  width: 100%;
+  font-family: var(--font-primary);
+  line-height: 1.6;
+}
+
+.title {
+  text-align: center;
+  color: var(--color-text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-background-hover);
+}
+
+.categoryTitle {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.techList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 1024px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .title {
-    text-align: center;
-    color: #333;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-  
-  .cardContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 固定为3列 */
-    gap: 1rem; /* 减少间隙以适应更多卡片 */
-  }
-  
-  .card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.25rem; /* 稍微减少内边距 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 2.2rem;
   }
   
   .categoryTitle {
-    color: #17a2b8;
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem; /* 稍微减小字体大小 */
-  }
-  
-  .techList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    font-size: 1.2rem;
   }
   
   .tech {
-    margin-bottom: 0.25rem;
-    font-size: 0.85rem; /* 稍微减小字体大小 */
-    color: #555;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: 1fr;
   }
   
-  /* 响应式调整 */
-  @media (max-width: 1024px) {
-    .cardContainer {
-      grid-template-columns: repeat(2, 1fr); /* 中等屏幕显示2列 */
-    }
+  .title {
+    font-size: 2rem;
   }
   
-  @media (max-width: 768px) {
-    .cardContainer {
-      grid-template-columns: 1fr; /* 小屏幕显示1列 */
-    }
+  .card {
+    padding: 1.25rem;
   }
+  
+  .categoryTitle {
+    font-size: 1.1rem;
+  }
+  
+  .tech {
+    font-size: 0.9rem;
+  }
+}
