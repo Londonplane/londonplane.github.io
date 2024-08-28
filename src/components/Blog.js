@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Blog.module.css';
 
-const UNSPLASH_ACCESS_KEY = 'Blr8ufIe5CWNcAMFxuKxcQJ0dgIOGmhq9mxuLVC1RPA';
+const UNSPLASH_ACCESS_KEY = 'blr8ufIe5CWNcAMFxuKxcQJ0dgIOGmhq9mxuLVC1RPA';
 
 // Simulated blog post data
 const blogPosts = [
