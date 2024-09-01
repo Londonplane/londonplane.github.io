@@ -1,7 +1,7 @@
 .about {
-  max-width: 1300px;
+  max-width: 1500px; /* 最大宽度 */
   margin: 0 auto;
-  padding: 4rem 0.5rem;
+  padding: 4rem 1rem; /* 左右内边距 */
   background-color: #ffffff;
 }
 
@@ -60,20 +60,24 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 3rem; /* 列间距 */
 }
 
 .leftColumn {
   flex: 1;
-  max-width: 40%;
+  max-width: 35%; /* 左列宽度 */
 }
 
 .rightColumn {
   flex: 1.5;
-  max-width: 60%;
+  max-width: 65%; /* 右列宽度 */
 }
 
 @media (max-width: 1023px) {
+  .about {
+    padding: 3rem 0.5rem; 
+  }
+
   .iconSection {
     flex-wrap: wrap;
   }
@@ -95,7 +99,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 3rem 0.25rem;
+    padding: 2rem 0.25rem;
   }
 
   .title {
