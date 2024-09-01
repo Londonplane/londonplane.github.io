@@ -27,16 +27,18 @@ const featureData = [
 
 const Features = () => {
   return (
-    <div className={styles.features}>
-      {featureData.map((feature, index) => (
-        <div key={index} className={styles.feature}>
-          <div className={styles.iconContainer}>
-            <feature.icon className={styles.icon} />
+    <div className={styles.featuresWrapper}>
+      <div className={styles.features}>
+        {featureData.map((feature, index) => (
+          <div key={index} className={styles.feature}>
+            <div className={styles.iconContainer}>
+              <feature.icon className={styles.icon} />
+            </div>
+            <h3 className={styles.keyword}>{feature.keyword}</h3>
+            <p className={styles.description}>{feature.description}</p>
           </div>
-          <h3 className={styles.keyword}>{feature.keyword}</h3>
-          <p className={styles.description}>{feature.description}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

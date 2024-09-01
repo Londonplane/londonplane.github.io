@@ -20,32 +20,89 @@
   bottom: -0.25rem;
   transform: translateX(-50%);
   height: 4px;
+  width: 50px;
   background-color: #2c3e50;
 }
 
-.content {
+.iconSection {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+
+.iconItem {
+  text-align: center;
+  max-width: 200px;
+}
+
+.icon {
+  background-color: #5dade2;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+}
+
+.iconTitle {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.iconDescription {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.mainContent {
+  display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 2rem;
 }
 
-@media (min-width: 1024px) {
-  .content > * {
-      flex-basis: calc(50% - 1rem);
-      max-width: 630px;
-  }
+.leftColumn {
+  flex: 1;
+  max-width: 40%;
+}
+
+.rightColumn {
+  flex: 1.5;
+  max-width: 60%;
 }
 
 @media (max-width: 1023px) {
-  .content > * {
-      flex-basis: 100%;
-      max-width: 100%;
+  .iconSection {
+    flex-wrap: wrap;
+  }
+
+  .iconItem {
+    flex-basis: 50%;
+    margin-bottom: 2rem;
+  }
+
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .about {
-      padding: 3rem 0.25rem;
+    padding: 3rem 0.25rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .iconItem {
+    flex-basis: 100%;
   }
 }

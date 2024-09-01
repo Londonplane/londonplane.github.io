@@ -61,8 +61,8 @@ const Projects = () => {
       title: "Personal Website",
       description: "Designed and developed a responsive personal website using React and Tailwind CSS to showcase my skills and projects.",
       skills: ["React", "Tailwind CSS", "Responsive Design"],
-      github: "https://github.com/yourusername/personal-website",
-      demo: "https://yourusername.github.io"
+      github: "https://github.com/Londonplane/londonplane.github.io",
+      demo: "https://londonplane.github.io/"
     },
     {
       title: "Library Management System",

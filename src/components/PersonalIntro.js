@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './PersonalIntro.module.css';
+import myPhoto from '../assets/images/profile-photo.jpeg';
 
 const PersonalIntro = () => {
   return (
     <div className={styles.personalIntro}>
-      <div className={styles.photoPlaceholder}>
-        {/* Photo placeholder */}
+      <div className={styles.photoContainer}>
+        {myPhoto ? (
+          <img src={myPhoto} alt="Portrait of the developer" className={styles.photo} />
+        ) : (
+          <div className={styles.photoPlaceholder}>Image not found</div>
+        )}
       </div>
       <div className={styles.introContent}>
         <h3 className={styles.question}>Who's this guy?</h3>

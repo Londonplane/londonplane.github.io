@@ -15,7 +15,6 @@ const TechStack = () => {
 
   return (
     <div className={styles.techStack}>
-      <h2 className={styles.title}>My Tech Stack</h2>
       <div className={styles.cardContainer}>
         {skills.map((skill, index) => (
           <SkillCard key={index} skill={skill} index={index} />

@@ -67,9 +67,13 @@ function About() {
         ></motion.span>
       </motion.h1>
       <Features />
-      <div className={styles.content}>
-        <PersonalIntro />
-        <TechStack />
+      <div className={styles.mainContent}>
+        <div className={styles.leftColumn}>
+          <PersonalIntro />
+        </div>
+        <div className={styles.rightColumn}>
+          <TechStack />
+        </div>
       </div>
     </section>
   );

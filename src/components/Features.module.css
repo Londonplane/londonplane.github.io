@@ -1,3 +1,9 @@
+.featuresWrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
 .features {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
