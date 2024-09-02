@@ -36,13 +36,26 @@ const Contact = () => {
       return;
     }
 
-    // Here, you would typically send the data to your backend
-    // For now, we'll just log it and show a success message
-    console.log('Form data:', formData);
-    setFormStatus('Message sent successfully!');
-    
-    // Clear form after submission
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      const response = await fetch('http://localhost:3001/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setFormStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setFormStatus('Failed to send message. Please try again.');
+    }
   };
 
   const scrollToTop = () => {
