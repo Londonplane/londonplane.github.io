@@ -1,10 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import styles from './Contact.module.css';
 
 const Contact = () => {
   const currentYear = new Date().getFullYear();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Basic form validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus('Please fill in all fields.');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFormStatus('Please enter a valid email address.');
+      return;
+    }
+
+    // Here, you would typically send the data to your backend
+    // For now, we'll just log it and show a success message
+    console.log('Form data:', formData);
+    setFormStatus('Message sent successfully!');
+    
+    // Clear form after submission
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,12 +56,34 @@ const Contact = () => {
         <div className={styles.underline}></div>
         <p className={styles.subtitle}>Have a question or want to work together?</p>
         
-        <form className={styles.form}>
-          <input type="text" placeholder="Name" className={styles.input} />
-          <input type="email" placeholder="Enter email" className={styles.input} />
-          <textarea placeholder="Your Message" rows="4" className={styles.textarea}></textarea>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            className={styles.input}
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            className={styles.input}
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="4"
+            className={styles.textarea}
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
           <button type="submit" className={styles.submit}>SUBMIT</button>
         </form>
+        {formStatus && <p className={styles.formStatus}>{formStatus}</p>}
       </div>
       
       <button className={styles.scrollTop} onClick={scrollToTop}>
