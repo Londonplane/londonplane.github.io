@@ -5,56 +5,30 @@ import styles from './Contact.module.css';
 
 const Contact = () => {
   const currentYear = new Date().getFullYear();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [formStatus, setFormStatus] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
     
-    // Basic form validation
-    if (!formData.name || !formData.email || !formData.message) {
-      setFormStatus('Please fill in all fields.');
-      return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setFormStatus('Please enter a valid email address.');
-      return;
-    }
-
-
     try {
-      const response = await fetch('http://localhost:3001/api/send-email', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/mldrvnol", { // 替换为您的 Formspree 表单 ID
+        method: "POST",
+        body: new FormData(form),
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+          'Accept': 'application/json'
+        }
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      
+      if (response.ok) {
+        setFormStatus("Thanks for your submission!");
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
       }
-
-      setFormStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('Error sending message:', error);
-      setFormStatus('Failed to send message. Please try again.');
+      console.error('Error submitting form:', error);
+      setFormStatus("Oops! There was a problem submitting your form. Please try again.");
     }
   };
 
@@ -75,24 +49,21 @@ const Contact = () => {
             name="name"
             placeholder="Name"
             className={styles.input}
-            value={formData.name}
-            onChange={handleChange}
+            required
           />
           <input
             type="email"
-            name="email"
+            name="_replyto"
             placeholder="Enter email"
             className={styles.input}
-            value={formData.email}
-            onChange={handleChange}
+            required
           />
           <textarea
             name="message"
             placeholder="Your Message"
             rows="4"
             className={styles.textarea}
-            value={formData.message}
-            onChange={handleChange}
+            required
           ></textarea>
           <button type="submit" className={styles.submit}>SUBMIT</button>
         </form>
@@ -104,7 +75,7 @@ const Contact = () => {
       </button>
       
       <div className={styles.socialIcons}>
-        <SocialIcon Icon={FaLinkedinIn} href="www.linkedin.com/in/tong-wu-3b3a6319a" />
+        <SocialIcon Icon={FaLinkedinIn} href="https://www.linkedin.com/in/tong-wu-3b3a6319a" />
         <SocialIcon Icon={FaXTwitter} href="https://x.com/wut0049" />
         <SocialIcon Icon={FaGithub} href="https://github.com/Londonplane" />
       </div>
@@ -115,7 +86,7 @@ const Contact = () => {
 };
 
 const SocialIcon = ({ Icon, href }) => (
-  <a href={href} className={styles.socialIcon}>
+  <a href={href} className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
     <Icon />
   </a>
 );
