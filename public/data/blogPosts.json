@@ -1,73 +1,73 @@
 [
-    {
-      "id": 1,
-      "title": "Deep Dive into React Hooks",
-      "excerpt": "Explore the power of React Hooks and learn how to simplify component logic...",
-      "date": "2024-08-15",
-      "category": "REACT/NEXT",
-      "contentFile": "1-deep-dive-into-react-hooks.md"
-    },
-    {
-      "id": 2,
-      "title": "Rapid Development Techniques with Ruby on Rails",
-      "excerpt": "Master the Ruby on Rails framework to accelerate your web application development process...",
-      "date": "2024-08-20",
-      "category": "RUBY/RAILS"
-    },
-    {
-      "id": 3,
-      "title": "Detailed Guide to JavaScript ES6+ Features",
-      "excerpt": "Gain a deep understanding of modern JavaScript features to enhance code quality and efficiency...",
-      "date": "2024-08-25",
-      "category": "JAVASCRIPT"
-    },
-    {
-      "id": 4,
-      "title": "Optimizing Server-Side Rendering with Next.js",
-      "excerpt": "Learn how to leverage Next.js for server-side rendering to improve website performance...",
-      "date": "2024-09-01",
-      "category": "REACT/NEXT"
-    },
-    {
-      "id": 5,
-      "title": "Advanced Ruby Metaprogramming Techniques",
-      "excerpt": "Explore Ruby's metaprogramming capabilities to write more flexible and powerful code...",
-      "date": "2024-09-05",
-      "category": "RUBY/RAILS"
-    },
-    {
-      "id": 6,
-      "title": "Mastering Asynchronous JavaScript Programming",
-      "excerpt": "Master techniques like Promises and async/await to improve code readability in asynchronous programming...",
-      "date": "2024-09-10",
-      "category": "JAVASCRIPT"
-    },
-    {
-      "id": 7,
-      "title": "Best Practices for React Performance Optimization",
-      "excerpt": "Learn optimization techniques for React applications to enhance responsiveness and user experience...",
-      "date": "2024-09-15",
-      "category": "REACT/NEXT"
-    },
-    {
-      "id": 8,
-      "title": "Exploring New Features in Rails 6",
-      "excerpt": "Dive deep into the new functionalities introduced in Rails 6 and upgrade your Rails skills...",
-      "date": "2024-09-20",
-      "category": "RUBY/RAILS"
-    },
-    {
-      "id": 9,
-      "title": "Practical JavaScript Design Patterns",
-      "excerpt": "Learn JavaScript design patterns through practical examples to improve code maintainability...",
-      "date": "2024-09-25",
-      "category": "JAVASCRIPT"
-    },
-    {
-      "id": 10,
-      "title": "Integrating GraphQL with React: A Comprehensive Guide",
-      "excerpt": "Learn how to integrate GraphQL in React applications to optimize data fetching...",
-      "date": "2024-09-30",
-      "category": "REACT/NEXT"
-    }
-  ]
+  {
+    "id": 1,
+    "title": "From Code to Screen: The Journey of a Webpage",
+    "excerpt": "Explore the web development process from a developer's code to a user's screen, explained through a smart house analogy for beginners.",
+    "date": "2024-06-05",
+    "category": "WEB_DEVELOPMENT",
+    "contentFile": "1-from-code-to-screen-journey-of-webpage.md"
+  },
+  {
+    "id": 2,
+    "title": "Rapid Development Techniques with Ruby on Rails",
+    "excerpt": "Master the Ruby on Rails framework to accelerate your web application development process...",
+    "date": "2024-08-20",
+    "category": "RUBY/RAILS"
+  },
+  {
+    "id": 3,
+    "title": "Detailed Guide to JavaScript ES6+ Features",
+    "excerpt": "Gain a deep understanding of modern JavaScript features to enhance code quality and efficiency...",
+    "date": "2024-08-25",
+    "category": "JAVASCRIPT"
+  },
+  {
+    "id": 4,
+    "title": "Optimizing Server-Side Rendering with Next.js",
+    "excerpt": "Learn how to leverage Next.js for server-side rendering to improve website performance...",
+    "date": "2024-09-01",
+    "category": "REACT/NEXT"
+  },
+  {
+    "id": 5,
+    "title": "Advanced Ruby Metaprogramming Techniques",
+    "excerpt": "Explore Ruby's metaprogramming capabilities to write more flexible and powerful code...",
+    "date": "2024-09-05",
+    "category": "RUBY/RAILS"
+  },
+  {
+    "id": 6,
+    "title": "Mastering Asynchronous JavaScript Programming",
+    "excerpt": "Master techniques like Promises and async/await to improve code readability in asynchronous programming...",
+    "date": "2024-09-10",
+    "category": "JAVASCRIPT"
+  },
+  {
+    "id": 7,
+    "title": "Best Practices for React Performance Optimization",
+    "excerpt": "Learn optimization techniques for React applications to enhance responsiveness and user experience...",
+    "date": "2024-09-15",
+    "category": "REACT/NEXT"
+  },
+  {
+    "id": 8,
+    "title": "Exploring New Features in Rails 6",
+    "excerpt": "Dive deep into the new functionalities introduced in Rails 6 and upgrade your Rails skills...",
+    "date": "2024-09-20",
+    "category": "RUBY/RAILS"
+  },
+  {
+    "id": 9,
+    "title": "Practical JavaScript Design Patterns",
+    "excerpt": "Learn JavaScript design patterns through practical examples to improve code maintainability...",
+    "date": "2024-09-25",
+    "category": "JAVASCRIPT"
+  },
+  {
+    "id": 10,
+    "title": "Integrating GraphQL with React: A Comprehensive Guide",
+    "excerpt": "Learn how to integrate GraphQL in React applications to optimize data fetching...",
+    "date": "2024-09-30",
+    "category": "REACT/NEXT"
+  }
+]
